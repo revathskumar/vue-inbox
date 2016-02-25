@@ -3,9 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>inbox</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta id="theme-color" name="theme-color" content="#00C34E">
   </head>
   <body>
-    <app></app>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Vue Mail</span>
+          <div class="mdl-layout-spacer"></div>
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <a class="mdl-navigation__link" href="">About</a>
+            <a class="mdl-navigation__link" href="">Chat</a>
+            <a class="mdl-navigation__link" href="">Careers</a>
+          </nav>
+        </div>
+      </header>
+      <div id="app"></div>
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>
