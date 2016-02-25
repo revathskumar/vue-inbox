@@ -52,6 +52,13 @@ module.exports = {
           limit: 10000,
           name: '[name].[ext]?[hash:7]'
         }
+      },
+      {
+        test: /\.css$/,
+        loader: "style-loader!css-loader"
+      }, {
+        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
+        loader: 'file-loader'
       }
     ]
   },
