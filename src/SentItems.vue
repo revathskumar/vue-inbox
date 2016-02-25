@@ -1,15 +1,15 @@
 <template>
   <div id="inbox">
-    <hello msg="Hello Sent Items Folder"></hello>
+    <title title="Sent Items"></title>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import Title from './components/Title'
 
 export default {
   components: {
-    Hello
+    Title
   }
 }
 </script>
