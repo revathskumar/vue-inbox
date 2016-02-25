@@ -6,7 +6,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '../dist/static'),
-    publicPath: '/static/',
+    publicPath: '/vue-inbox/static/',
     filename: '[name].js'
   },
   resolve: {
