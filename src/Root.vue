@@ -1,6 +1,6 @@
 <template>
   <div id="inbox">
-    <hello msg="Hello Inbox Folder"></hello>
+    <hello msg="Hello Vue Mail"></hello>
   </div>
 </template>
 

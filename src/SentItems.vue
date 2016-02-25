@@ -1,7 +1,6 @@
 <template>
   <div id="inbox">
-    <hello></hello>
-    This is Sent Items
+    <hello msg="Hello Sent Items Folder"></hello>
   </div>
 </template>
 

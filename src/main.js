@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import App from './App'
+import All from './All'
+import Root from './Root'
 import Inbox from './Inbox'
 import Drafts from './Drafts'
 import SentItems from './SentItems'
-import All from './All'
 import VueRouter from 'vue-router'
 
 import 'material-design-lite/material.css'
@@ -16,7 +17,7 @@ const router = new VueRouter()
 
 router.map({
   '/': {
-    component: Inbox
+    component: Root
   },
   '/inbox': {
     component: Inbox
