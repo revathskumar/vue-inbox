@@ -1,7 +1,7 @@
 <template>
   <div id="inbox">
     <title title="Inbox"></title>
-    <div v-if="$loadingAsyncData">Loading...</div>
+    <div v-if="$loadingAsyncData" class="mdl-spinner mdl-js-spinner is-active"></div>
     <list v-if="!$loadingAsyncData" :mails="mails"></list>
     <create></create>
   </div>
@@ -25,7 +25,10 @@ export default {
     .then(res => {
       res.json()
         .then(mails => {
-          resolve({mails})
+          const filteredMails = mails.filter(mail => {
+            return mail.label.indexOf('inbox') >= 0
+          })
+          resolve({mails: filteredMails})
         })
     })
     .catch(err => {

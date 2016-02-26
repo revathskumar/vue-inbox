@@ -1,15 +1,40 @@
 <template>
   <div id="inbox">
     <title title="Sent Items"></title>
+    <div v-if="$loadingAsyncData" class="mdl-spinner mdl-js-spinner is-active"></div>
+    <list v-if="!$loadingAsyncData" :mails="mails"></list>
   </div>
 </template>
 
 <script>
+/* global fetch */
 import Title from './components/Title'
+import List from './components/List'
 
 export default {
+  data () {
+    return {
+      mails: []
+    }
+  },
+  asyncData (resolve, reject) {
+    fetch('https://output.jsbin.com/vutiqi.json')
+    .then(res => {
+      res.json()
+        .then(mails => {
+          const filteredMails = mails.filter(mail => {
+            return mail.label.indexOf('sent') >= 0
+          })
+          resolve({mails: filteredMails})
+        })
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  },
   components: {
-    Title
+    Title,
+    List
   }
 }
 </script>
