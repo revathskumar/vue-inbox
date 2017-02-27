@@ -15,25 +15,21 @@ import 'material-design-icons/iconfont/material-icons.css'
 Vue.use(VueRouter)
 Vue.use(VueAsyncData)
 
-const router = new VueRouter()
-
-router.map({
-  '/': {
-    component: Root
-  },
-  '/inbox': {
-    component: Inbox
-  },
-  '/drafts': {
-    component: Drafts
-  },
-  '/sent': {
-    component: SentItems
-  },
-  '/all': {
-    component: All
-  }
+const router = new VueRouter({
+  routes: [
+    {path: '/', component: Root},
+    {path: '/inbox', component: Inbox},
+    {path: '/draft', component: Drafts},
+    {path: '/sent', component: SentItems},
+    {path: '/all', component: All}
+  ]
 })
 
 /* eslint-disable no-new */
-router.start(App, '#app')
+new Vue({
+  el: '#app',
+  router: router,
+  render: (createElement) => {
+    return createElement(App)
+  }
+})

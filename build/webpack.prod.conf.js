@@ -47,7 +47,6 @@ config.plugins = (config.plugins || []).concat([
       warnings: false
     }
   }),
-  new webpack.optimize.OccurenceOrderPlugin(),
   // extract css into its own file
   new ExtractTextPlugin('[name].[contenthash].css'),
   // generate dist index.html with correct asset hash for caching.

@@ -10,59 +10,52 @@ module.exports = {
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['', '.js', '.vue'],
-    alias: {
-      'src': path.resolve(__dirname, '../src')
-    }
-  },
-  resolveLoader: {
-    root: path.join(__dirname, 'node_modules')
+    extensions: ['.js', '.vue'],
+    modules: [
+      path.join(__dirname, 'src'),
+      'node_modules'
+    ]
   },
   module: {
-    preLoaders: [
+    rules: [
+      // {
+      //   test: /\.vue$/,
+      //   use: 'eslint-loader',
+      //   enforce: 'pre',
+      //   exclude: /node_modules/
+      // },
+      // {
+      //   test: /\.js$/,
+      //   use: 'eslint-loader',
+      //   enforce: 'pre',
+      //   exclude: /node_modules/
+      // },
       {
         test: /\.vue$/,
-        loader: 'eslint',
-        exclude: /node_modules/
+        use: 'vue-loader'
       },
       {
         test: /\.js$/,
-        loader: 'eslint',
+        use: 'babel-loader',
         exclude: /node_modules/
-      }
-    ],
-    loaders: [
-      {
-        test: /\.vue$/,
-        loader: 'vue'
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'url',
-        query: {
-          limit: 10000,
-          name: '[name].[ext]?[hash:7]'
+        use: {
+          loader: 'url-loader',
+          query: {
+            limit: 10000,
+            name: '[name].[ext]?[hash:7]'
+          }
         }
       },
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader"
+        use: ['style-loader', 'css-loader']
       }, {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-        loader: 'file-loader'
+        use: 'file-loader'
       }
     ]
-  },
-  eslint: {
-    formatter: require('eslint-friendly-formatter')
   }
 }

@@ -1,39 +1,49 @@
 <template>
   <div id="inbox">
-    <title title="Sent Items"></title>
-    <div v-if="$loadingAsyncData" class="mdl-spinner mdl-js-spinner is-active"></div>
-    <list v-if="!$loadingAsyncData" :mails="mails"></list>
+    <vtitle title="Sent Items"></vtitle>
+    <div v-if="loading" class="mdl-spinner mdl-js-spinner is-active"></div>
+    <list v-if="!loading" :mails="mails"></list>
   </div>
 </template>
 
 <script>
 /* global fetch */
-import Title from './components/Title'
+import Vtitle from './components/Vtitle'
 import List from './components/List'
 
 export default {
   data () {
     return {
-      mails: []
+      mails: [],
+      loading: true,
+      error: null
     }
   },
-  asyncData (resolve, reject) {
-    fetch('https://output.jsbin.com/vutiqi.json')
-    .then(res => {
-      res.json()
-        .then(mails => {
-          const filteredMails = mails.filter(mail => {
-            return mail.label.indexOf('sent') >= 0
-          })
-          resolve({mails: filteredMails})
+  created () {
+    this.fetchData()
+  },
+  watch: {
+    '$route': 'fetchData'
+  },
+  methods: {
+    fetchData () {
+      fetch('https://output.jsbin.com/vutiqi.json')
+      .then(res => {
+        return res.json()
+      })
+      .then(mails => {
+        this.loading = false
+        this.mails = mails.filter(mail => {
+          return mail.label.indexOf('sent') >= 0
         })
-    })
-    .catch(err => {
-      console.log(err)
-    })
+      })
+      .catch(err => {
+        this.error = err.toString()
+      })
+    }
   },
   components: {
-    Title,
+    Vtitle,
     List
   }
 }

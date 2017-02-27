@@ -1,15 +1,15 @@
 <template>
   <div id="inbox">
-    <title title="Vue Mail"></title>
+    <vtitle title="Vue Mail"></vtitle>
   </div>
 </template>
 
 <script>
-import Title from './components/Title'
+import Vtitle from './components/Vtitle'
 
 export default {
   components: {
-    Title
+    Vtitle
   }
 }
 </script>
