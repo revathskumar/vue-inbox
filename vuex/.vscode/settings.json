@@ -1,5 +1,6 @@
 {
   "editor.formatOnSave": false,
+  "editor.tabSize": 2,
   // Enable per-language
   "[javascript]": {
     "editor.formatOnSave": true

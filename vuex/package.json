@@ -39,7 +39,9 @@
       "plugin:vue/essential",
       "@vue/prettier"
     ],
-    "rules": {},
+    "rules": {
+      "comma-dangle": ["never"]
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
