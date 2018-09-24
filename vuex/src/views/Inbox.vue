@@ -1,6 +1,6 @@
 <template>
-  <section class="section">
-    <div class="container is-fluid">
+  <section class="hero">
+    <!-- <div class="container is-fluid"> -->
       <div v-if="isInboxLoading">
         Your mails are Loading...
       </div>
@@ -23,9 +23,9 @@
             </li>
           </ul>
         </div>
-        
+
       </div>
-    </div>
+    <!-- </div> -->
   </section>
 </template>
 
@@ -40,8 +40,11 @@ export default {
   methods: {
     ...mapActions(['fetchMails']),
   },
-  mounted() {
+  created() {
     this.fetchMails();
   },
+  watch: {
+    '$route': 'fetchMails'
+  }
 };
 </script>
