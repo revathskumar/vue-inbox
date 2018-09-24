@@ -3,7 +3,7 @@
     <nav-bar>
       <inbox-nav-items v-if="isInboxRoute"></inbox-nav-items>
     </nav-bar>
-    <section class="hero">
+    <section class="section">
       <div class="container">
         <router-view/>
       </div>
