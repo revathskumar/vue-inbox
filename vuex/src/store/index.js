@@ -1,15 +1,17 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-import { inbox } from "./modules/inbox";
-import { mutations } from "./mutations";
-import { actions } from "./actions";
+import {inbox} from './modules/inbox';
+import {filters} from './modules/filters';
+import {mutations} from './mutations';
+import {actions} from './actions';
 
-Vue.use(Vuex);
+Vue.use (Vuex);
 
-export default new Vuex.Store({
+export default new Vuex.Store ({
   modules: {
     inbox,
+    filters,
   },
   mutations,
   actions,
